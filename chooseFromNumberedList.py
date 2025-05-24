@@ -3,16 +3,16 @@
 # Version 0.3
 # Date 20250523
 #
-# This module allows you to print and select from items in a given list by
-# entering the number or moving the selector up and down with the plus and mius
-# signs, or with brackets pointing left (backward) or right (forward), also
-# multiple in one input. Confirm every input with the Enter key.
+# chooseFromNumberedList allows you to print and select from items in a given
+# list by entering the number or moving the selector up and down with the plus
+# and mius signs, or with brackets pointing left (backward) or right (forward),
+# also multiple in one input. Confirm every input with the Enter key.
 #
 # The function requires exactly four arguments:
-# the list:            the given [list, with, the, items] to choose from
-# the sorting method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
-# the starting number: common are 0 or 1, but any positive number can be given
-# the default choice:  a number in the numbering list, between the lowest and
+# the NumberedList:    the given [list, with, the, items] to choose from
+# the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
+# the Starting Number: common are 0 or 1, but any positive number can be given
+# the Default Option:  a number in the numbering list, between the lowest and
 #                      the highest number in the list (inclusive)
 # It returns the selected item in the list and its index number in that list.
 def chooseFromNumberedList(NumberedList,AscendingOrDescendingOrRandom,StartWithZeroOrOne,DefaultOption):
@@ -77,17 +77,17 @@ def chooseFromNumberedList(NumberedList,AscendingOrDescendingOrRandom,StartWithZ
         printNumberedList(Int)
     # 0 = item in list, 1 = index of that item in list
     return NumberedList[IntList.index(Int)],Int-StartWithZeroOrOne
-# This module allows you to print and select from items in a given list by
-# entering the key or moving the selector up and down with the plus and mius
+# chooseFromKeysList allows you to print and select from items in a given list
+# by entering the key or moving the selector up and down with the plus and mius
 # signs, or with brackets pointing left (backward) or right (forward), also
 # multiple in one input. Confirm every input with the Enter key.
 #
 # The function requires exactly four arguments:
-# the List:           the given [list, with, the, items] to choose from
-# the Keys List:      the list with all possible keys to enter on input. Both
-#                     lists MUST be equal in length
-# the Case:           "U"pper, "l"ower or "C"ase sensitive
-# the Default Choice: The the default option key in the KeysList
+# the NotNumberedList: the given [list, with, the, items] to choose from
+# the Keys List:       the list with all possible keys to enter on input. Both
+#                      lists MUST be equal in length
+# the Case:            "U"pper, "l"ower or "C"ase sensitive
+# the Default Choice:  The the default option key in the KeysList
 # It returns the selected item in the list and the corresponding key.
 def chooseFromKeysList(NotNumberedList,KeysList,UpperOrLower,DefaultOption):
     nexti = [")","}","]",">","+"]
