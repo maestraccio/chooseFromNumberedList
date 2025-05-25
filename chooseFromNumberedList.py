@@ -13,9 +13,10 @@
 # the Starting Number: common are 0 or 1, but any positive number can be given
 # the Default Option:  a number in the numbering list, between the lowest and
 #                      the highest number in the list (inclusive)
-# Optional: a customized indicator: Can contain a colour code (don't forget to
-#                      close it with "\033[0m"!). Default string length is 3,
-#                      but you can also change the length to make it stand out.
+# Optional:            a customized indicator: Can contain a colour code (don't
+#                      forget to close it with "\033[0m"!). Default string length
+#                      is 3, but you can also change the length to make it stand
+#                      out.
 # It returns the selected item in the list and its index number in that list.
 def chooseFromNumberedList(Import):
     NumberedList =                  Import[0]
@@ -97,9 +98,10 @@ def chooseFromNumberedList(Import):
 #                      lists MUST be equal in length
 # the Case:            "U"pper, "l"ower or "C"ase sensitive
 # the Default Choice:  The the default option key in the KeysList
-# Optional: a customized indicator: Can contain a colour code (don't forget to
-#                      close it with "\033[0m"!). Default string length is 3,
-#                      but you can also change the length to make it stand out.
+# Optional:            a customized indicator: Can contain a colour code (don't
+#                      forget to close it with "\033[0m"!). Default string length
+#                      is 3, but you can also change the length to make it stand
+#                      out.
 # It returns the selected item in the list and the corresponding key.
 def chooseFromKeysList(Import):
     NotNumberedList = Import[0]
@@ -160,16 +162,17 @@ def chooseFromKeysList(Import):
     # 0 = item in list, 1 = chosen option
     return NotNumberedList[KeysList.index(Option)],Option
 
-# chooseFromList allows you to print and select from items in a given list by
-# moving the selector up and down with the plus and minus signs, or with
-# brackets pointing left (backward) or right (forward), also multiple in one
-# input. Confirm every input with the Enter key.
-# The function requires one list of two or three elements:
+# **chooseFromList** allows you to print and select from items in a given list by
+# moving the selector up and down with the plus and minus signs, or with brackets
+# pointing left (backward) or right (forward), also multiple in one input.
+# Confirm every input with the Enter key.  The function requires one list of two
+# or three elements:
 # the List:            the given [list, with, the, items] to choose from
 # the Default Option:  an index number in the List
-# Optional: a customized indicator: Can contain a colour code (don't forget to
-#                      close it with "\033[0m"!). Default string length is 3,
-#                      but you can also change the length to make it stand out.
+# Optional:            a customized indicator: Can contain a colour code (don't
+#                      forget to close it with "\033[0m"!). Default string length
+#                      is 3, but you can also change the length to make it stand
+#                      out.
 # It returns the selected item in the list and its index number in that list.
 def chooseFromList(Import):
     List = Import[0]
