@@ -1,25 +1,33 @@
 #!/usr/bin/python
 
-# Version 0.3
-# Date 20250523
+# Version 1.01
+# Date 20250525
 #
 # chooseFromNumberedList allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
 # and mius signs, or with brackets pointing left (backward) or right (forward),
 # also multiple in one input. Confirm every input with the Enter key.
-#
-# The function requires exactly four arguments:
+# 
+# The function requires a list of four or five arguments:
 # the NumberedList:    the given [list, with, the, items] to choose from
 # the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
 # the Starting Number: common are 0 or 1, but any positive number can be given
 # the Default Option:  a number in the numbering list, between the lowest and
 #                      the highest number in the list (inclusive)
+# Optional: a customized indicator: Can contain a colour code (don't forget to
+#                      close it with "\033[0m"!). String length = 3.
 # It returns the selected item in the list and its index number in that list.
-def chooseFromNumberedList(NumberedList,AscendingOrDescendingOrRandom,StartWithZeroOrOne,DefaultOption):
-    import random
+def chooseFromNumberedList(Import):
+    NumberedList =                  Import[0]
+    AscendingOrDescendingOrRandom = Import[1]
+    StartWithZeroOrOne =            Import[2]
+    DefaultOption =                 Import[3]
+    try:
+        this = Import[4]
+    except:
+        this = "-> "
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
-    this = "-> "
     thisnot = "   "
     connect = " : "
     Int = DefaultOption
@@ -28,6 +36,7 @@ def chooseFromNumberedList(NumberedList,AscendingOrDescendingOrRandom,StartWithZ
         for item in NumberedList:
             IntList.append(len(NumberedList)-NumberedList.index(item)+StartWithZeroOrOne-1)
     elif AscendingOrDescendingOrRandom.upper() == "R":
+        import random
         TempList = []
         for item in NumberedList:
             TempList.append(NumberedList.index(item)+StartWithZeroOrOne)
@@ -82,17 +91,26 @@ def chooseFromNumberedList(NumberedList,AscendingOrDescendingOrRandom,StartWithZ
 # signs, or with brackets pointing left (backward) or right (forward), also
 # multiple in one input. Confirm every input with the Enter key.
 #
-# The function requires exactly four arguments:
+# The function requires a list of four or five arguments:
 # the NotNumberedList: the given [list, with, the, items] to choose from
 # the Keys List:       the list with all possible keys to enter on input. Both
 #                      lists MUST be equal in length
 # the Case:            "U"pper, "l"ower or "C"ase sensitive
 # the Default Choice:  The the default option key in the KeysList
+# Optional: a customized indicator: Can contain a colour code (don't forget to
+#                      close it with "\033[0m"!). String length = 3.
 # It returns the selected item in the list and the corresponding key.
-def chooseFromKeysList(NotNumberedList,KeysList,UpperOrLower,DefaultOption):
+def chooseFromKeysList(Import):
+    NotNumberedList = Import[0]
+    KeysList =        Import[1]
+    UpperOrLower =    Import[2]
+    DefaultOption =   Import[3]
+    try:
+        this = Import[4]
+    except:
+        this = "-> "
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
-    this = "-> "
     thisnot = "   "
     connect = " : "
     if UpperOrLower.upper() == "U":
@@ -140,3 +158,52 @@ def chooseFromKeysList(NotNumberedList,KeysList,UpperOrLower,DefaultOption):
         printNotNumberedList(Option)
     # 0 = item in list, 1 = chosen option
     return NotNumberedList[KeysList.index(Option)],Option
+# chooseFromList allows you to print and select from items in a given list by
+# moving the selector up and down with the plus and mius signs, or with
+# brackets pointing left (backward) or right (forward), also multiple in one
+# input. Confirm every input with the Enter key.
+#
+# The function requires a list of two or three arguments:
+# the List:    the given [list, with, the, items] to choose from
+# the Default Option:  a number in the numbering list, between the lowest and
+#                      the highest number in the list (inclusive)
+# Optional: a customized indicator: Can contain a colour code (don't forget to
+#                      close it with "\033[0m"!). String length = 3.
+# It returns the selected item in the list and its index number in that list.
+def chooseFromList(Import):
+    List = Import[0]
+    Int =  Import[1]
+    try:
+        this = Import[2]
+    except:
+        this = "-> "
+    nexti = [")","}","]",">","+"]
+    previ = ["(","{","[","<","-"]
+    thisnot = "   "
+    connect = " : "
+    def printList(Int):
+        Index = Int
+        for i in List:
+            if List.index(i) == Int:
+                print(this+i)
+            else:
+                print(thisnot+i)
+        return Int
+    printList(Int)
+    yes = True
+    while yes == True:
+        ip = input()
+        if ip == "":
+            break
+        for k in ip:
+            if k in nexti:
+                Index = (Int + 1) % len(List)
+                Int = Index
+            elif k in previ:
+                Index = (Int - 1) % len(List)
+                Int = Index
+            else:
+                pass
+        printList(Int)
+    # 0 = item in list, 1 = index of that item in list
+    return List[Int],Int
