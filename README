@@ -1,0 +1,42 @@
+**chooseFromNumberedList** allows you to print and select from items in a given
+list by entering the number or moving the selector up and down with the plus
+and mius signs, or with brackets pointing left (backward) or right (forward),
+also multiple in one input. Confirm every input with the Enter key.
+
+The function requires a list of four or five arguments:
+the NumberedList:    the given [list, with, the, items] to choose from
+the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
+the Starting Number: common are 0 or 1, but any positive number can be given
+the Default Option:  a number in the numbering list, between the lowest and
+                     the highest number in the list (inclusive)
+Optional: a customized indicator: Can contain a colour code (don't forget to
+                     close it with "\033[0m"!). String length = 3.
+It returns the selected item in the list and its index number in that list.
+
+**chooseFromKeysList** allows you to print and select from items in a given list
+by entering the key or moving the selector up and down with the plus and mius
+signs, or with brackets pointing left (backward) or right (forward), also
+multiple in one input. Confirm every input with the Enter key.
+
+The function requires a list of four or five arguments:
+the NotNumberedList: the given [list, with, the, items] to choose from
+the Keys List:       the list with all possible keys to enter on input. Both
+                     lists MUST be equal in length
+the Case:            "U"pper, "l"ower or "C"ase sensitive
+the Default Choice:  The the default option key in the KeysList
+Optional: a customized indicator: Can contain a colour code (don't forget to
+                     close it with "\033[0m"!). String length = 3.
+It returns the selected item in the list and the corresponding key.
+
+chooseFromList allows you to print and select from items in a given list by
+moving the selector up and down with the plus and mius signs, or with
+brackets pointing left (backward) or right (forward), also multiple in one
+input. Confirm every input with the Enter key.
+
+The function requires a list of two or three arguments:
+the List:    the given [list, with, the, items] to choose from
+the Default Option:  a number in the numbering list, between the lowest and
+                     the highest number in the list (inclusive)
+Optional: a customized indicator: Can contain a colour code (don't forget to
+                     close it with "\033[0m"!). String length = 3.
+It returns the selected item in the list and its index number in that list.
