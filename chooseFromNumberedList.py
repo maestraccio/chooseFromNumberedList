@@ -23,13 +23,6 @@ def chooseFromNumberedList(Import):
     AscendingOrDescendingOrRandom = Import[1]
     StartWithZeroOrOne =            Import[2]
     DefaultOption =                 Import[3]
-    try:
-        if Import[4].upper() == "I":
-            this = "{:^3}".format(Import[3])
-        else:
-            this = str(Import[4])
-    except:
-        this = "-> "
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     thisnot = "   "
