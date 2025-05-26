@@ -24,7 +24,7 @@ def chooseFromNumberedList(Import):
     StartWithZeroOrOne =            Import[2]
     DefaultOption =                 Import[3]
     try:
-        this = Import[4]
+        this = str(Import[4])
     except:
         this = "-> "
     nexti = [")","}","]",">","+"]
@@ -109,7 +109,7 @@ def chooseFromKeysList(Import):
     UpperOrLower =    Import[2]
     DefaultOption =   Import[3]
     try:
-        this = Import[4]
+        this = str(Import[4])
     except:
         this = "-> "
     nexti = [")","}","]",">","+"]
@@ -178,7 +178,7 @@ def chooseFromList(Import):
     List = Import[0]
     Int =  Import[1]
     try:
-        this = Import[2]
+        this = str(Import[2])
     except:
         this = "-> "
     nexti = [")","}","]",">","+"]
