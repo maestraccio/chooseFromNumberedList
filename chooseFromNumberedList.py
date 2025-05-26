@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 1.01
-# Date 20250525
+# Version 1.02
+# Date 20250526
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -16,7 +16,7 @@
 # Optional:            a customized indicator: Can contain a colour code (don't
 #                      forget to close it with "\033[0m"!). Default string length
 #                      is 3, but you can also change the length to make it stand
-#                      out.
+#                      out. If it is "O", the chosen option is used.
 # It returns the selected item in the list and its index number in that list.
 def chooseFromNumberedList(Import):
     NumberedList =                  Import[0]
@@ -24,7 +24,10 @@ def chooseFromNumberedList(Import):
     StartWithZeroOrOne =            Import[2]
     DefaultOption =                 Import[3]
     try:
-        this = str(Import[4])
+        if Import[4].upper() == "I":
+            this = "{:^3}".format(Import[3])
+        else:
+            this = str(Import[4])
     except:
         this = "-> "
     nexti = [")","}","]",">","+"]
@@ -49,6 +52,13 @@ def chooseFromNumberedList(Import):
         for item in NumberedList:
             IntList.append(NumberedList.index(item)+StartWithZeroOrOne)
     def printNumberedList(Int):
+        try:
+            if Import[4].upper() == "O":
+                this = "{:^3}".format(Int)
+            else:
+                this = str(Import[4])
+        except:
+            this = "-> "
         StrList = []
         for i in IntList:
             StrList.append(str(i))
@@ -101,17 +111,13 @@ def chooseFromNumberedList(Import):
 # Optional:            a customized indicator: Can contain a colour code (don't
 #                      forget to close it with "\033[0m"!). Default string length
 #                      is 3, but you can also change the length to make it stand
-#                      out.
+#                      out. If it is "O", the chosen option is used.
 # It returns the selected item in the list and the corresponding key.
 def chooseFromKeysList(Import):
     NotNumberedList = Import[0]
     KeysList =        Import[1]
     UpperOrLower =    Import[2]
     DefaultOption =   Import[3]
-    try:
-        this = str(Import[4])
-    except:
-        this = "-> "
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     thisnot = "   "
@@ -126,6 +132,13 @@ def chooseFromKeysList(Import):
         print("len(NumberedList) != len(KeysList)")
         return
     def printNotNumberedList(Option):
+        try:
+            if Import[4].upper() == "O":
+                this = "{:^3}".format(Option)
+            else:
+                this = str(Import[4])
+        except:
+            this = "-> "
         maxlen = len(max(KeysList,key = len))
         PrOption = KeysList[KeysList.index(Option)]
         for i in KeysList:
@@ -172,20 +185,23 @@ def chooseFromKeysList(Import):
 # Optional:            a customized indicator: Can contain a colour code (don't
 #                      forget to close it with "\033[0m"!). Default string length
 #                      is 3, but you can also change the length to make it stand
-#                      out.
+#                      out. If it is "O", the chosen option is used.
 # It returns the selected item in the list and its index number in that list.
 def chooseFromList(Import):
     List = Import[0]
     Int =  Import[1]
-    try:
-        this = str(Import[2])
-    except:
-        this = "-> "
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     thisnot = "   "
     connect = " : "
     def printList(Int):
+        try:
+            if Import[4].upper() == "O":
+                this = "{:^3}".format(Int)
+            else:
+                this = str(Import[4])
+        except:
+            this = "-> "
         Index = Int
         for i in List:
             if List.index(i) == Int:

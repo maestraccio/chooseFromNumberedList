@@ -11,7 +11,7 @@ the Default Option:  a number in the numbering list, between the lowest and
 Optional:            a customized indicator: Can contain a colour code (don't
                      forget to close it with "\033[0m"!). Default string length
                      is 3, but you can also change the length to make it stand
-                     out.
+                     out. If it is "O", the chosen option is used.
 It returns the selected item in the list and its index number in that list.
 
 **chooseFromKeysList** allows you to print and select from items in a given list
@@ -27,7 +27,7 @@ the Default Choice:  The the default option key in the KeysList
 Optional:            a customized indicator: Can contain a colour code (don't
                      forget to close it with "\033[0m"!). Default string length
                      is 3, but you can also change the length to make it stand
-                     out.
+                     out. If it is "O", the chosen option is used.
 It returns the selected item in the list and the corresponding key.
 
 **chooseFromList** allows you to print and select from items in a given list by
@@ -40,5 +40,5 @@ the Default Option:  an index number in the List
 Optional:            a customized indicator: Can contain a colour code (don't
                      forget to close it with "\033[0m"!). Default string length
                      is 3, but you can also change the length to make it stand
-                     out.
+                     out. If it is "O", the chosen option is used.
 It returns the selected item in the list and its index number in that list.
