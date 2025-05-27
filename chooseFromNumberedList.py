@@ -189,10 +189,10 @@ def chooseFromList(Import):
     connect = " : "
     def printList(Int):
         try:
-            if Import[4].upper() == "O":
+            if Import[2].upper() == "O":
                 this = "{:^3}".format(Int)[:3]
             else:
-                this = str(Import[4])
+                this = str(Import[2])
         except:
             this = "-> "
         Index = Int
