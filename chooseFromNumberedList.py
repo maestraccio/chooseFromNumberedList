@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 1.02
-# Date 20250526
+# Version 1.03
+# Date 20250527
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -47,7 +47,7 @@ def chooseFromNumberedList(Import):
     def printNumberedList(Int):
         try:
             if Import[4].upper() == "O":
-                this = "{:^3}".format(Int)
+                this = "{:^3}".format(Int)[:3]
             else:
                 this = str(Import[4])
         except:
@@ -127,7 +127,7 @@ def chooseFromKeysList(Import):
     def printNotNumberedList(Option):
         try:
             if Import[4].upper() == "O":
-                this = "{:^3}".format(Option)
+                this = "{:^3}".format(Option)[:3]
             else:
                 this = str(Import[4])
         except:
@@ -190,7 +190,7 @@ def chooseFromList(Import):
     def printList(Int):
         try:
             if Import[4].upper() == "O":
-                this = "{:^3}".format(Int)
+                this = "{:^3}".format(Int)[:3]
             else:
                 this = str(Import[4])
         except:
