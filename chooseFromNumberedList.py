@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 1.03
-# Date 20250527
+# Version 1.04
+# Date 20250528
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -220,3 +220,78 @@ def chooseFromList(Import):
         printList(Int)
     # 0 = item in list, 1 = index of that item in list
     return List[Int],Int
+
+# **chooseFromDictionary** allows you to print and select from items in a given
+# dictionary by entering the key or moving the selector up and down with the plus
+# and minus signs, or with brackets pointing left (backward) or right (forward),
+# also multiple in one input. Confirm every input with the Enter key.
+# The function requires one list of four or five elements:
+# the Dictionary:     the given dictionary with the keys and values to choose
+#                     from. The value can be anything but "None", an empty string
+#                     "" is accepted.
+# the Showing option: 0: don't show the line if value is ""
+#                     1: print only the key if the value is ""
+#                     2: print all lines
+#                     the Default Option: an existing key in the dictionary
+# Optional:           a customized indicator: Can contain a colour code (don't
+#                     forget to close it with "\033[0m"!). Default string length
+#                     is 3, but you can also change the length to make it stand
+#                     out. If it is "O", the first three characters of the chosen
+#                     key are used.
+# It returns the selected value and its key.
+def chooseFromNumberedDictionary(Import):
+    NumberedDictionary = Import[0]
+    ShowEmpty =          Import[1]
+    DefaultOption =      Import[2]
+    nexti = [")","}","]",">","+"]
+    previ = ["(","{","[","<","-"]
+    thisnot = "   "
+    connect = " : "
+    Key = DefaultOption
+    IList = []
+    JList = []
+    for i,j in NumberedDictionary.items():
+        IList.append(i)
+        JList.append(j)
+    print(IList,JList)
+    def printNumberedDictionary(Key):
+        try:
+            if Import[3].upper() == "O":
+                this = "{:^3}".format(Key)[:3]
+            else:
+                this = str(Import[3])
+        except:
+            this = "-> "
+        StrList = []
+        for i in IList:
+            StrList.append(str(i))
+        maxlen = len(max(StrList,key = len))
+        for i in IList:
+            if i == Key:
+                print(this+("{:>%d}" % maxlen).format(i)+connect+str(JList[IList.index(i)]))
+            elif ShowEmpty == 0 and str(JList[IList.index(i)]) == "":
+                pass
+            elif ShowEmpty == 1 and str(JList[IList.index(i)]) == "":
+                print(thisnot+("{:>%d}" % maxlen).format(i))
+            else:
+                print(thisnot+("{:>%d}" % maxlen).format(i)+connect+str(JList[IList.index(i)]))
+        return Key
+    printNumberedDictionary(Key)
+    yes = True
+    while yes == True:
+        NewKey = input()
+        if NewKey in IList:
+            Key = NewKey
+        elif NewKey == "":
+            break
+        else:
+            for k in NewKey:
+                if k in nexti:
+                    Key = IList[(IList.index(Key) + 1) % len(NumberedDictionary)]
+                elif k in previ:
+                    Key = IList[(IList.index(Key) - 1) % len(NumberedDictionary)]
+                else:
+                    pass
+        printNumberedDictionary(Key)
+    # 0 = item in Dictionary, 1 = Key of that item in Dictionary
+    return NumberedDictionary[Key],Key
