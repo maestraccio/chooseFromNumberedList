@@ -50,7 +50,7 @@ It returns the selected item in the list and its index number in that list.
 dictionary by entering the key or moving the selector up and down with the plus
 and minus signs, or with brackets pointing left (backward) or right (forward),
 also multiple in one input. Confirm every input with the Enter key.
-The function requires one list of four or five elements:
+The function requires one list of three or four elements:
 the Dictionary:     the given dictionary with the keys and values to choose
                     from. The value can be anything but "None", an empty string
                     "" is accepted.
