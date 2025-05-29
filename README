@@ -54,9 +54,13 @@ The function requires one list of four or five elements:
 the Dictionary:     the given dictionary with the keys and values to choose
                     from. The value can be anything but "None", an empty string
                     "" is accepted.
-the Showing option: 0: don't show the line if value is ""
-                    1: print only the key if the value is ""
-                    2: print all lines
+the Showing option: The line with the indicator is always printed, plus:
+                    0: don't show a line if its value is ""
+                    1: print all lines, buf if its value is "", print only the
+                    key
+                    2: print all lines, including the connector and the empty
+                    value
+                    3: print only the lines with an empty value
 the Default Option: an existing key in the dictionary
 Optional:           a customized indicator: Can contain a colour code (don't
                     forget to close it with "\033[0m"!). Default string length
