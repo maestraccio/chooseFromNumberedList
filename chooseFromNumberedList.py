@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 1.05
-# Date 20250529
+# Version 1.06
+# Date 20250530
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -227,8 +227,7 @@ def chooseFromList(Import):
 # also multiple in one input. Confirm every input with the Enter key.
 # The function requires one list of three or four elements:
 # the Dictionary:     the given dictionary with the keys and values to choose
-#                     from. The value can be anything but "None", an empty string
-#                     "" is accepted.
+#                     from.
 # the Showing option: The line with the indicator is always printed, plus:
 #                     0: don't show a line if its value is ""
 #                     1: print all lines, buf if its value is "", print only the
@@ -256,7 +255,10 @@ def chooseFromDictionary(Import):
     JList = []
     for i,j in Dictionary.items():
         IList.append(i)
-        JList.append(j)
+        if j == None:
+            JList.append("")
+        else:
+            JList.append(j)
     def printDictionary(Key):
         try:
             if Import[3].upper() == "O":
@@ -315,3 +317,36 @@ def chooseFromDictionary(Import):
         printDictionary(Key)
     # 0 = item in Dictionary, 1 = Key of that item in Dictionary
     return Dictionary[Key],Key
+
+#ExampleList = [
+#        "Als",
+#        "Bij",
+#        "Catania",
+#        "De",
+#        "Etna",
+#        "Fakkelt"
+#        ]
+#ExampleKeysList = [
+#        "A",
+#        "B",
+#        "C",
+#        "D",
+#        "E",
+#        "F"
+#        ] 
+#ExampleDictionary = {
+#        "A": "Als",
+#        "B": None,
+#        "C": "",
+#        "D": "De",
+#        "E": "Etna",
+#        "F": ""
+#        }
+#what, where = chooseFromNumberedList([ExampleList, "D", 1, 2])
+#print(what, where)
+#what, where = chooseFromKeysList([ExampleList, ExampleKeysList, "U", "c"])
+#print(what, where)
+#what, where = chooseFromList([ExampleList, 0, "---"])
+#print(what, where)
+#what, where = chooseFromDictionary([ExampleDictionary, 3, "B", "\033[32m"+"+- "+"\033[0m"])
+#print(what, where)

@@ -52,8 +52,7 @@ and minus signs, or with brackets pointing left (backward) or right (forward),
 also multiple in one input. Confirm every input with the Enter key.
 The function requires one list of three or four elements:
 the Dictionary:     the given dictionary with the keys and values to choose
-                    from. The value can be anything but "None", an empty string
-                    "" is accepted.
+                    from.
 the Showing option: The line with the indicator is always printed, plus:
                     0: don't show a line if its value is ""
                     1: print all lines, buf if its value is "", print only the
