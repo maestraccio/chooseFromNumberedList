@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 1.06
-# Date 20250530
+# Version 1.07
+# Date 20250531
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -256,7 +256,11 @@ def chooseFromDictionary(Import):
     for i,j in Dictionary.items():
         IList.append(i)
         if j == None:
-            JList.append("")
+            JList.append("(None)")
+        elif j == True:
+            JList.append("(True)")
+        elif j == False:
+            JList.append("(False)")
         else:
             JList.append(j)
     def printDictionary(Key):
