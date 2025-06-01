@@ -2,55 +2,64 @@
 list by entering the number or moving the selector up and down with the plus
 and minus signs, or with brackets pointing left (backward) or right (forward),
 also multiple in one input. Confirm every input with the Enter key.
-The function requires one list of four or five elements:
+The function requires one list of four, five or six elements:
 the NumberedList:    the given [list, with, the, items] to choose from
 the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
 the Starting Number: common are 0 or 1, but any positive number can be given
 the Default Option:  a number in the numbering list, between the lowest and
                      the highest number in the list (inclusive)
-Optional:            a customized indicator: Can contain a colour code
+Optional1:           a customized indicator: Can contain a colour code
                      (don't forget to close it with "\033[0m"!). Default
                      string length is 3, but you can also change the length
                      to make it stand out. If it is "O", the first three
                      characters of the chosen key are used.
+Optional2:           A list with valid options that are not shown in the
+                     NumberedList. ATTENTION: It returns only the chosen
+                     option, twice!
 It returns the selected item in the list and its index number in that list.
 
 **chooseFromKeysList** allows you to print and select from items in a given list
 by entering the key or moving the selector up and down with the plus and minus
 signs, or with brackets pointing left (backward) or right (forward), also
 multiple in one input. Confirm every input with the Enter key.
-The function requires one list of four or five elements:
+The function requires one list of four, five or six elements:
 the NotNumberedList: the given [list, with, the, items] to choose from
 the Keys List:       the list with all possible keys to enter on input. Both
                      lists MUST be equal in length
 the Case:            "U"pper, "l"ower or "C"ase sensitive
 the Default Choice:  The the default option key in the KeysList
-Optional:            a customized indicator: Can contain a colour code
+Optional1:           a customized indicator: Can contain a colour code
                      (don't forget to close it with "\033[0m"!). Default
                      string length is 3, but you can also change the length
                      to make it stand out. If it is "O", the first three
                      characters of the chosen key are used.
+Optional2:           A list with valid options that are not shown in the
+                     KeysList. ATTENTION: It returns only the chosen option,
+                     twice!
 It returns the selected item in the list and the corresponding key.
 
 **chooseFromList** allows you to print and select from items in a given list by
 moving the selector up and down with the plus and minus signs, or with brackets
 pointing left (backward) or right (forward), also multiple in one input.
-Confirm every input with the Enter key.  The function requires one list of two
-or three elements:
+Confirm every input with the Enter key.
+The function requires one list of two, three or four elements:
 the List:            the given [list, with, the, items] to choose from
 the Default Option:  an index number in the List
-Optional:            a customized indicator: Can contain a colour code
+Optional1:           a customized indicator: Can contain a colour code
                      (don't forget to close it with "\033[0m"!). Default
                      string length is 3, but you can also change the length
                      to make it stand out. If it is "O", the first three
                      characters of the chosen key are used.
+Optional2:           A list with valid options that are not shown in the
+                     List. ATTENTION: It returns only the chosen option, twice!
 It returns the selected item in the list and its index number in that list.
 
 **chooseFromDictionary** allows you to print and select from items in a given
-dictionary by entering the key or moving the selector up and down with the plus
-and minus signs, or with brackets pointing left (backward) or right (forward),
-also multiple in one input. Confirm every input with the Enter key.
-The function requires one list of three or four elements:
+dictionary by entering (a fragment of) the key or moving the selector up and
+down with the plus and minus signs, or with brackets pointing left (backward)
+or right (forward), also multiple in one input. Confirm every input with the
+Enter key.
+The function requires one list of three, four or five elements:
 the Dictionary:     the given dictionary with the keys and values to choose
                     from.
 the Showing option: The line with the indicator is always printed, plus:
@@ -61,9 +70,12 @@ the Showing option: The line with the indicator is always printed, plus:
                     value
                     3: print only the lines with an empty value
 the Default Option: an existing key in the dictionary
-Optional:           a customized indicator: Can contain a colour code (don't
+Optional1:          a customized indicator: Can contain a colour code (don't
                     forget to close it with "\033[0m"!). Default string length
                     is 3, but you can also change the length to make it stand
                     out. If it is "O", the first three characters of the chosen
                     key are used.
+Optional2:          A list with valid options that are not shown in the
+                    Dictionary. ATTENTION: It returns only the chosen option,
+                    twice!
 It returns the selected value and its key.
