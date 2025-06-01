@@ -431,11 +431,11 @@ ExampleHiddenList = [
         ":u",
         ":w"
         ]
-what, where = chooseFromNumberedList([ExampleList, "D", 0, 2])
-print(what, where)
-what, where = chooseFromKeysList([ExampleList, ExampleKeysList, "U", "c"])
-print(what, where)
-what, where = chooseFromList([ExampleList, 0, "---"])
-print(what, where)
-what, where = chooseFromDictionary([ExampleDictionary, 3, "B", "\033[32m"+">- "+"\033[0m",ExampleHiddenList])
-print(what, where)
+#what, where = chooseFromNumberedList([ExampleList, "D", 0, 2])
+#print(what, where)
+#what, where = chooseFromKeysList([ExampleList, ExampleKeysList, "U", "c"])
+#print(what, where)
+#what, where = chooseFromList([ExampleList, 0, "---"])
+#print(what, where)
+#what, where = chooseFromDictionary([ExampleDictionary, 3, "B", "\033[32m"+">- "+"\033[0m",ExampleHiddenList])
+#print(what, where)
