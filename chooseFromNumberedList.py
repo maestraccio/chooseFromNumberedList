@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.00
-# Date 20250601
+# Version 2.10
+# Date 20250608
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -94,6 +94,7 @@ def chooseFromNumberedList(Import):
         try:
             Index = (int(ip) - StartWithZeroOrOne) % len(NumberedList)
             Int = Index + StartWithZeroOrOne
+            break
         except(Exception) as e:
             #print(e)
             if ip in HiddenList:
@@ -195,6 +196,7 @@ def chooseFromKeysList(Import):
             return ip,ip
         elif ip in KeysList:
             Option = ip
+            break 
         else:
             if ip == "":
                 break
@@ -359,6 +361,8 @@ def chooseFromDictionary(Import):
                     print(this+("{:>%d}" % maxlen).format(i)+connect+str(JList[IList.index(i)]))
                 elif str(JList[IList.index(i)]) == "":
                     pass
+                else:
+                    print(thisnot+("{:>%d}" % maxlen).format(i)+connect+str(JList[IList.index(i)]))
             elif ShowEmpty == 1:
                 if i == Key:
                     print(this+("{:>%d}" % maxlen).format(i)+connect+str(JList[IList.index(i)]))
@@ -390,52 +394,51 @@ def chooseFromDictionary(Import):
         for j in IList:
             if NewKey in j:
                 Key = j
+                yes = False
                 break
         for k in NewKey:
             if k in nexti:
                 Key = IList[(IList.index(Key) + 1) % len(Dictionary)]
             elif k in previ:
                 Key = IList[(IList.index(Key) - 1) % len(Dictionary)]
-            else:
-                pass
         printDictionary(Key)
     # 0 = item in Dictionary, 1 = Key of that item in Dictionary
     return Dictionary[Key],Key
 
-ExampleList = [
-        "Als",
-        2,
-        "Catania",
-        None,
-        "Etna",
-        "Fakkelt"
-        ]
-ExampleKeysList = [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
-        ] 
-ExampleDictionary = {
-        "A": "Als",
-        "B": None,
-        "C": "",
-        "D": True,
-        "E": "Etna",
-        "F": "Fakkelt"
-        }
-ExampleHiddenList = [
-        ":q",
-        ":u",
-        ":w"
-        ]
+#ExampleList = [
+#        "Als",
+#        2,
+#        "Catania",
+#        None,
+#        "Etna",
+#        "Fakkelt"
+#        ]
+#ExampleKeysList = [
+#        "A",
+#        "B",
+#        "C",
+#        "D",
+#        "E",
+#        "F"
+#        ] 
+#ExampleDictionary = {
+#        "A": "Als",
+#        "B": None,
+#        "C": "",
+#        "D": True,
+#        "E": "Etna",
+#        "F": "Fakkelt"
+#        }
+#ExampleHiddenList = [
+#        ":q",
+#        ":u",
+#        ":w"
+#        ]
 #what, where = chooseFromNumberedList([ExampleList, "D", 0, 2])
 #print(what, where)
 #what, where = chooseFromKeysList([ExampleList, ExampleKeysList, "U", "c"])
 #print(what, where)
 #what, where = chooseFromList([ExampleList, 0, "---"])
 #print(what, where)
-#what, where = chooseFromDictionary([ExampleDictionary, 3, "B", "\033[32m"+">- "+"\033[0m",ExampleHiddenList])
+#what, where = chooseFromDictionary([ExampleDictionary, 1, "B", "\033[32m"+">- "+"\033[0m",ExampleHiddenList])
 #print(what, where)
