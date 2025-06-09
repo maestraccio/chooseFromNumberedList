@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.20
-# Date 20250608
+# Version 2.21
+# Date 20250609
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -36,6 +36,9 @@ def chooseFromNumberedList(Import):
     DefaultIndicator =              "-> "     # provide as str,  Import[4]
     DefaultHiddenList =             []        # provide as list, Import[4] or Import[5]
     DefaultAccept =                 True      # provide as int,  Import[4] or Import[5] or Import[6]
+    Indicator =  DefaultIndicator 
+    HiddenList = DefaultHiddenList
+    Accept =     DefaultAccept
     # Import[4]
     try:
         if type(Import[4]) == str:
@@ -181,6 +184,9 @@ def chooseFromKeysList(Import):
     DefaultIndicator =              "-> "     # provide as str,  Import[4]
     DefaultHiddenList =             []        # provide as list, Import[4] or Import[5]
     DefaultAccept =                 True      # provide as int,  Import[4] or Import[5] or Import[6]
+    Indicator =  DefaultIndicator 
+    HiddenList = DefaultHiddenList
+    Accept =     DefaultAccept
     # Import[4]
     try:
         if type(Import[4]) == str:
@@ -307,6 +313,8 @@ def chooseFromList(Import):
     Int =               Import[1] # provide as str
     DefaultIndicator =  "-> "     # provide as str,  Import[2]
     DefaultHiddenList = []        # provide as list, Import[2] or Import[3]
+    Indicator =  DefaultIndicator 
+    HiddenList = DefaultHiddenList
     # Import[2]
     try:
         if type(Import[2]) == str:
@@ -404,6 +412,9 @@ def chooseFromDictionary(Import):
     DefaultIndicator =  "-> "     # provide as str,  Import[4]
     DefaultHiddenList = []        # provide as list, Import[4] or Import[5]
     DefaultAccept =     True      # provide as int,  Import[4] or Import[5] or Import[6]
+    Indicator =  DefaultIndicator 
+    HiddenList = DefaultHiddenList
+    Accept =     DefaultAccept
     # Import[3]
     try:
         if type(Import[3]) == str:
@@ -453,24 +464,24 @@ def chooseFromDictionary(Import):
     try:
         if type(Import[3]) == str:
             if Import[3].upper() == "O":
-                this = "{:^3}".format(Key)[:3]
+                Indicator = "{:^3}".format(Key)[:3]
             else:
-                this = Import[3]
+                Indicator = Import[3]
             try:
                 HiddenList = Import[4]
             except:
                 HiddenList = []
         elif type(Import[3]) == list:
-            this = "-> "
+            Indicator = "-> "
             HiddenList = Import[3]
         else:
-            this = "-> "
+            Indicator = "-> "
             try:
                 HiddenList = Import[4]
             except:
                 HiddenList = []
     except:
-        this = "-> "
+        Indicator = "-> "
         HiddenList = []
     nexti =     [")","}","]",">","+"]
     previ =     ["(","{","[","<","-"]
