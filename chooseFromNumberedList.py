@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.21
-# Date 20250609
+# Version 2.22
+# Date 20250613
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -39,6 +39,25 @@ def chooseFromNumberedList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
+    # Import[6]
+    try:
+        if type(Import[6]) == int:
+            if Import[6] == 0:
+                Accept = False
+    except:
+        Accept = DefaultAccept
+    # Import[5]
+    try:
+        if type(Import[5]) == list:
+            HiddenList = Import[5]
+    except:
+        HiddenList = DefaultHiddenList
+    try:
+        if type(Import[5]) == int:
+            if Import[5] == 0:
+                Accept == False
+    except:
+        Accept = DefaultAccept
     # Import[4]
     try:
         if type(Import[4]) == str:
@@ -48,41 +67,12 @@ def chooseFromNumberedList(Import):
     try:
         if type(Import[4]) == list:
             HiddenList = Import[4]
-        else:
-            HiddenList = DefaultHiddenList
     except:
         HiddenList = DefaultHiddenList
     try:
         if type(Import[4]) == int:
             if Import[4] == 0:
                 Accept == False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
-    # Import[5]
-    try:
-        if type(Import[5]) == list:
-            HiddenList = Import[5]
-        else:
-            HiddenList = DefaultHiddenList
-    except:
-        HiddenList = DefaultHiddenList
-    try:
-        if type(Import[5]) == int:
-            if Import[5] == 0:
-                Accept == False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
-    # Import[6]
-    try:
-        if type(Import[6]) == int:
-            if Import[6] == 0:
-                Accept = False
-            else:
-                Accept = DefaultAccept
     except:
         Accept = DefaultAccept
     nexti     = [")","}","]",">","+"]
@@ -187,6 +177,25 @@ def chooseFromKeysList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
+    # Import[6]
+    try:
+        if type(Import[6]) == int:
+            if Import[6] == 0:
+                Accept = False
+    except:
+        Accept = DefaultAccept
+    # Import[5]
+    try:
+        if type(Import[5]) == list:
+            HiddenList = Import[5]
+    except:
+        HiddenList = DefaultHiddenList
+    try:
+        if type(Import[5]) == int:
+            if Import[5] == 0:
+                Accept == False
+    except:
+        Accept = DefaultAccept
     # Import[4]
     try:
         if type(Import[4]) == str:
@@ -196,41 +205,12 @@ def chooseFromKeysList(Import):
     try:
         if type(Import[4]) == list:
             HiddenList = Import[4]
-        else:
-            HiddenList = DefaultHiddenList
     except:
         HiddenList = DefaultHiddenList
     try:
         if type(Import[4]) == int:
             if Import[4] == 0:
                 Accept == False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
-    # Import[5]
-    try:
-        if type(Import[5]) == list:
-            HiddenList = Import[5]
-        else:
-            HiddenList = DefaultHiddenList
-    except:
-        HiddenList = DefaultHiddenList
-    try:
-        if type(Import[5]) == int:
-            if Import[5] == 0:
-                Accept == False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
-    # Import[6]
-    try:
-        if type(Import[6]) == int:
-            if Import[6] == 0:
-                Accept = False
-            else:
-                Accept = DefaultAccept
     except:
         Accept = DefaultAccept
     nexti = [")","}","]",">","+"]
@@ -315,6 +295,12 @@ def chooseFromList(Import):
     DefaultHiddenList = []        # provide as list, Import[2] or Import[3]
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
+    # Import[3]
+    try:
+        if type(Import[3]) == list:
+            HiddenList = Import[3]
+    except:
+        HiddenList = DefaultHiddenList
     # Import[2]
     try:
         if type(Import[2]) == str:
@@ -324,16 +310,6 @@ def chooseFromList(Import):
     try:
         if type(Import[2]) == list:
             HiddenList = Import[2]
-        else:
-            HiddenList = DefaultHiddenList
-    except:
-        HiddenList = DefaultHiddenList
-    # Import[3]
-    try:
-        if type(Import[3]) == list:
-            HiddenList = Import[3]
-        else:
-            HiddenList = DefaultHiddenList
     except:
         HiddenList = DefaultHiddenList
     nexti = [")","}","]",">","+"]
@@ -343,9 +319,9 @@ def chooseFromList(Import):
     def printList(Int,Indicator):
         if Indicator.upper() == "O":
             try:
-                Indicator = "{:^3}".format(List[Int])[:3]
+                Indicator = "{:^3}".format(List[Int])[:2] + " "
             except:
-                Indicator = "{:^3}".format(Int)[:3]
+                Indicator = "{:^3}".format(Int)[:2] + " "
         Index = Int
         for i in List:
             if List.index(i) == Int:
@@ -415,43 +391,6 @@ def chooseFromDictionary(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    # Import[3]
-    try:
-        if type(Import[3]) == str:
-                Indicator = Import[3]
-    except:
-        Indicator =  DefaultIndicator
-    try:
-        if type(Import[3]) == list:
-            HiddenList = Import[3]
-        else:
-            HiddenList = DefaultHiddenList
-    except:
-        HiddenList = DefaultHiddenList
-    try:
-        if type(Import[3]) == int:
-            if Import[3] == 0:
-                Accept == False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
-    # Import[5]
-    try:
-        if type(Import[4]) == list:
-            HiddenList = Import[4]
-        else:
-            HiddenList = DefaultHiddenList
-    except:
-        HiddenList = DefaultHiddenList
-    try:
-        if type(Import[4]) == int:
-            if Import[4] == 0:
-                Accept == False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
     # Import[6]
     try:
         if type(Import[5]) == int:
@@ -461,12 +400,39 @@ def chooseFromDictionary(Import):
                 Accept = DefaultAccept
     except:
         Accept = DefaultAccept
+    # Import[5]
+    try:
+        if type(Import[4]) == list:
+            HiddenList = Import[4]
+    except:
+        HiddenList = DefaultHiddenList
+    try:
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept == False
+    except:
+        Accept = DefaultAccept
+    # Import[3]
+    try:
+        if type(Import[3]) == str:
+                Indicator = Import[3]
+    except:
+        Indicator =  DefaultIndicator
+    try:
+        if type(Import[3]) == list:
+            HiddenList = Import[3]
+    except:
+        HiddenList = DefaultHiddenList
+    try:
+        if type(Import[3]) == int:
+            if Import[3] == 0:
+                Accept == False
+    except:
+        Accept = DefaultAccept
     try:
         if type(Import[3]) == str:
             if Import[3].upper() == "O":
                 Indicator = "{:^3}".format(Key)[:3]
-            else:
-                Indicator = Import[3]
             try:
                 HiddenList = Import[4]
             except:
@@ -554,37 +520,38 @@ def chooseFromDictionary(Import):
     # 0 = item in Dictionary, 1 = Key of that item in Dictionary
     return Dictionary[Key],Key
 
-#TestList = [
-#        "Als",
-#        2,
-#        "Catania",
-#        None,
-#        "Etna",
-#        "Fakkelt"
-#        ]
-#TestKeysList = [
-#        "A",
-#        "B",
-#        "C",
-#        "D",
-#        "E",
-#        "F"
-#        ] 
-#TestDictionary = {
-#        "A": "Als",
-#        "B": None,
-#        "C": "",
-#        "D": True,
-#        "E": "Etna",
-#        "F": "Fakkelt"
-#        }
-#TestHiddenList = [
-#        ":q",
-#        ":u",
-#        ":w"
-#        ]
+TestList = [
+        "Als",
+        2,
+        "Catania",
+        None,
+        "Etna",
+        "Fakkelt"
+        ]
+TestKeysList = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+        ] 
+TestDictionary = {
+        "A": "Als",
+        "B": None,
+        "C": "",
+        "D": True,
+        "E": "Etna",
+        "F": "Fakkelt"
+        }
+TestHiddenList = [
+        ":q",
+        ":u",
+        ":w"
+        ]
 #what, where = chooseFromNumberedList([TestList, "D", 2, 2, "O", TestHiddenList, 1])
 #print(what, where)
+#print(what.upper(),where.upper())
 #what, where = chooseFromKeysList([TestList, TestKeysList, "U", "c", "O", TestHiddenList, 1])
 #print(what, where)
 #what, where = chooseFromList([TestList, 0, "\033[32m"+"---"+"\033[0m", TestHiddenList, 1])
