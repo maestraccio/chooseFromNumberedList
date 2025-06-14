@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.22
-# Date 20250613
+# Version 2.23
+# Date 20250614
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -39,42 +39,51 @@ def chooseFromNumberedList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    # Import[6]
-    try:
+    if len(Import) == 7:
         if type(Import[6]) == int:
             if Import[6] == 0:
                 Accept = False
-    except:
-        Accept = DefaultAccept
-    # Import[5]
-    try:
-        if type(Import[5]) == list:
-            HiddenList = Import[5]
-    except:
-        HiddenList = DefaultHiddenList
-    try:
+        elif type(Import[6]) == list:
+            HiddenList = Import[6]
+        elif type(Import[6]) == str:
+                Indicator = Import[6]
         if type(Import[5]) == int:
             if Import[5] == 0:
-                Accept == False
-    except:
-        Accept = DefaultAccept
-    # Import[4]
-    try:
-        if type(Import[4]) == str:
-                Indicator = Import[4]
-    except:
-        Indicator =  DefaultIndicator
-    try:
-        if type(Import[4]) == list:
-            HiddenList = Import[4]
-    except:
-        HiddenList = DefaultHiddenList
-    try:
+                Accept = False
+        elif type(Import[5]) == list:
+            HiddenList = Import[5]
+        elif type(Import[5]) == str:
+                Indicator = Import[5]
         if type(Import[4]) == int:
             if Import[4] == 0:
-                Accept == False
-    except:
-        Accept = DefaultAccept
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+    elif len(Import) == 6:
+        if type(Import[5]) == int:
+            if Import[5] == 0:
+                Accept = False
+        elif type(Import[5]) == list:
+            HiddenList = Import[5]
+        elif type(Import[5]) == str:
+                Indicator = Import[5]
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+    elif len(Import) == 5:
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
     nexti     = [")","}","]",">","+"]
     previ     = ["(","{","[","<","-"]
     Outicator = "   "
@@ -177,42 +186,51 @@ def chooseFromKeysList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    # Import[6]
-    try:
+    if len(Import) == 7:
         if type(Import[6]) == int:
             if Import[6] == 0:
                 Accept = False
-    except:
-        Accept = DefaultAccept
-    # Import[5]
-    try:
-        if type(Import[5]) == list:
-            HiddenList = Import[5]
-    except:
-        HiddenList = DefaultHiddenList
-    try:
+        elif type(Import[6]) == list:
+            HiddenList = Import[6]
+        elif type(Import[6]) == str:
+                Indicator = Import[6]
         if type(Import[5]) == int:
             if Import[5] == 0:
-                Accept == False
-    except:
-        Accept = DefaultAccept
-    # Import[4]
-    try:
-        if type(Import[4]) == str:
-                Indicator = Import[4]
-    except:
-        Indicator =  DefaultIndicator
-    try:
-        if type(Import[4]) == list:
-            HiddenList = Import[4]
-    except:
-        HiddenList = DefaultHiddenList
-    try:
+                Accept = False
+        elif type(Import[5]) == list:
+            HiddenList = Import[5]
+        elif type(Import[5]) == str:
+                Indicator = Import[5]
         if type(Import[4]) == int:
             if Import[4] == 0:
-                Accept == False
-    except:
-        Accept = DefaultAccept
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+    elif len(Import) == 6:
+        if type(Import[5]) == int:
+            if Import[5] == 0:
+                Accept = False
+        elif type(Import[5]) == list:
+            HiddenList = Import[5]
+        elif type(Import[5]) == str:
+                Indicator = Import[5]
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+    elif len(Import) == 5:
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     Outicator = "   "
@@ -295,23 +313,51 @@ def chooseFromList(Import):
     DefaultHiddenList = []        # provide as list, Import[2] or Import[3]
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
-    # Import[3]
-    try:
-        if type(Import[3]) == list:
+    if len(Import) == 5:
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+        if type(Import[3]) == int:
+            if Import[3] == 0:
+                Accept = False
+        elif type(Import[3]) == list:
             HiddenList = Import[3]
-    except:
-        HiddenList = DefaultHiddenList
-    # Import[2]
-    try:
-        if type(Import[2]) == str:
-                Indicator = Import[2]
-    except:
-        Indicator =  DefaultIndicator
-    try:
-        if type(Import[2]) == list:
+        elif type(Import[3]) == str:
+                Indicator = Import[3]
+        if type(Import[2]) == int:
+            if Import[2] == 0:
+                Accept = False
+        elif type(Import[2]) == list:
             HiddenList = Import[2]
-    except:
-        HiddenList = DefaultHiddenList
+        elif type(Import[2]) == str:
+                Indicator = Import[2]
+    elif len(Import) == 4:
+        if type(Import[3]) == int:
+            if Import[3] == 0:
+                Accept = False
+        elif type(Import[3]) == list:
+            HiddenList = Import[3]
+        elif type(Import[3]) == str:
+                Indicator = Import[3]
+        if type(Import[2]) == int:
+            if Import[2] == 0:
+                Accept = False
+        elif type(Import[2]) == list:
+            HiddenList = Import[2]
+        elif type(Import[2]) == str:
+                Indicator = Import[2]
+    elif len(Import) == 3:
+        if type(Import[2]) == int:
+            if Import[2] == 0:
+                Accept = False
+        elif type(Import[2]) == list:
+            HiddenList = Import[2]
+        elif type(Import[2]) == str:
+                Indicator = Import[2]
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     Outicator = "   "
@@ -391,64 +437,51 @@ def chooseFromDictionary(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    # Import[6]
-    try:
+    if len(Import) == 6:
         if type(Import[5]) == int:
             if Import[5] == 0:
                 Accept = False
-            else:
-                Accept = DefaultAccept
-    except:
-        Accept = DefaultAccept
-    # Import[5]
-    try:
-        if type(Import[4]) == list:
-            HiddenList = Import[4]
-    except:
-        HiddenList = DefaultHiddenList
-    try:
+        elif type(Import[5]) == list:
+            HiddenList = Import[5]
+        elif type(Import[5]) == str:
+                Indicator = Import[5]
         if type(Import[4]) == int:
             if Import[4] == 0:
-                Accept == False
-    except:
-        Accept = DefaultAccept
-    # Import[3]
-    try:
-        if type(Import[3]) == str:
-                Indicator = Import[3]
-    except:
-        Indicator =  DefaultIndicator
-    try:
-        if type(Import[3]) == list:
-            HiddenList = Import[3]
-    except:
-        HiddenList = DefaultHiddenList
-    try:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
+    elif len(Import) == 5:
+        if type(Import[4]) == int:
+            if Import[4] == 0:
+                Accept = False
+        elif type(Import[4]) == list:
+            HiddenList = Import[4]
+        elif type(Import[4]) == str:
+                Indicator = Import[4]
         if type(Import[3]) == int:
             if Import[3] == 0:
-                Accept == False
-    except:
-        Accept = DefaultAccept
-    try:
-        if type(Import[3]) == str:
-            if Import[3].upper() == "O":
-                Indicator = "{:^3}".format(Key)[:3]
-            try:
-                HiddenList = Import[4]
-            except:
-                HiddenList = []
+                Accept = False
         elif type(Import[3]) == list:
-            Indicator = "-> "
             HiddenList = Import[3]
-        else:
-            Indicator = "-> "
-            try:
-                HiddenList = Import[4]
-            except:
-                HiddenList = []
-    except:
-        Indicator = "-> "
-        HiddenList = []
+        elif type(Import[3]) == str:
+                Indicator = Import[3]
+    elif len(Import) == 4:
+        if type(Import[3]) == int:
+            if Import[3] == 0:
+                Accept = False
+        elif type(Import[3]) == list:
+            HiddenList = Import[3]
+        elif type(Import[3]) == str:
+                Indicator = Import[3]
     nexti =     [")","}","]",">","+"]
     previ =     ["(","{","[","<","-"]
     Outicator = "   "
