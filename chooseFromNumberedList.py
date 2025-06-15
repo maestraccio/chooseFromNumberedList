@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.24
-# Date 20250614
+# Version 2.26
+# Date 20250615
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -39,7 +39,8 @@ def chooseFromNumberedList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    Optionals = Import[-3:]
+    LenOpt = len(Import) - 4
+    Optionals = Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
@@ -151,7 +152,8 @@ def chooseFromKeysList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    Optionals = Import[-3:]
+    LenOpt = len(Import) - 4
+    Optionals = Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
@@ -242,7 +244,8 @@ def chooseFromList(Import):
     DefaultHiddenList = []        # provide as list, Import[2] or Import[3]
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
-    Optionals = Import[-3:]
+    LenOpt = len(Import) - 2
+    Optionals = Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
@@ -330,7 +333,8 @@ def chooseFromDictionary(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    Optionals = Import[-3:]
+    LenOpt = len(Import) - 3
+    Optionals = Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
