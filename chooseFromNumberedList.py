@@ -39,8 +39,8 @@ def chooseFromNumberedList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    LenOpt = len(Import) - 4
-    Optionals = Import[-LenOpt:]
+    LenOpt =     len(Import) - 4
+    Optionals =  Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
@@ -152,8 +152,8 @@ def chooseFromKeysList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    LenOpt = len(Import) - 4
-    Optionals = Import[-LenOpt:]
+    LenOpt =     len(Import) - 4
+    Optionals =  Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
@@ -244,8 +244,8 @@ def chooseFromList(Import):
     DefaultHiddenList = []        # provide as list, Import[2] or Import[3]
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
-    LenOpt = len(Import) - 2
-    Optionals = Import[-LenOpt:]
+    LenOpt =     len(Import) - 2
+    Optionals =  Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
@@ -333,8 +333,8 @@ def chooseFromDictionary(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
-    LenOpt = len(Import) - 3
-    Optionals = Import[-LenOpt:]
+    LenOpt =     len(Import) - 3
+    Optionals =  Import[-LenOpt:]
     for i in Optionals:
         if type(i) == str:
                 Indicator = i
