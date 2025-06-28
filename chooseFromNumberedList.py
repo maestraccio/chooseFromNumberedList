@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.26
-# Date 20250615
+# Version 2.27
+# Date 20250628
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -40,15 +40,18 @@ def chooseFromNumberedList(Import):
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
     LenOpt =     len(Import) - 4
-    Optionals =  Import[-LenOpt:]
-    for i in Optionals:
-        if type(i) == str:
-                Indicator = i
-        elif type(i) == list:
-            HiddenList = i
-        elif type(i) == int:
-            if i == 0:
-                Accept = False
+    if len(Import) == 4:
+        pass
+    else:
+        Optionals =  Import[-LenOpt:]
+        for i in Optionals:
+            if type(i) == str:
+                    Indicator = i
+            elif type(i) == list:
+                HiddenList = i
+            elif type(i) == int:
+                if i == 0:
+                    Accept = False
 
     nexti     = [")","}","]",">","+"]
     previ     = ["(","{","[","<","-"]
@@ -153,15 +156,18 @@ def chooseFromKeysList(Import):
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
     LenOpt =     len(Import) - 4
-    Optionals =  Import[-LenOpt:]
-    for i in Optionals:
-        if type(i) == str:
-                Indicator = i
-        elif type(i) == list:
-            HiddenList = i
-        elif type(i) == int:
-            if i == 0:
-                Accept = False
+    if len(Import) == 4:
+        pass
+    else:
+        Optionals =  Import[-LenOpt:]
+        for i in Optionals:
+            if type(i) == str:
+                    Indicator = i
+            elif type(i) == list:
+                HiddenList = i
+            elif type(i) == int:
+                if i == 0:
+                    Accept = False
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     Outicator = "   "
@@ -245,15 +251,18 @@ def chooseFromList(Import):
     Indicator =  DefaultIndicator 
     HiddenList = DefaultHiddenList
     LenOpt =     len(Import) - 2
-    Optionals =  Import[-LenOpt:]
-    for i in Optionals:
-        if type(i) == str:
-                Indicator = i
-        elif type(i) == list:
-            HiddenList = i
-        elif type(i) == int:
-            if i == 0:
-                Accept = False
+    if len(Import) == 2:
+        pass
+    else:
+        Optionals =  Import[-LenOpt:]
+        for i in Optionals:
+            if type(i) == str:
+                    Indicator = i
+            elif type(i) == list:
+                HiddenList = i
+            elif type(i) == int:
+                if i == 0:
+                    Accept = False
     nexti = [")","}","]",">","+"]
     previ = ["(","{","[","<","-"]
     Outicator = "   "
@@ -334,15 +343,18 @@ def chooseFromDictionary(Import):
     HiddenList = DefaultHiddenList
     Accept =     DefaultAccept
     LenOpt =     len(Import) - 3
-    Optionals =  Import[-LenOpt:]
-    for i in Optionals:
-        if type(i) == str:
-                Indicator = i
-        elif type(i) == list:
-            HiddenList = i
-        elif type(i) == int:
-            if i == 0:
-                Accept = False
+    if len(Import) == 3:
+        pass
+    else:
+        Optionals =  Import[-LenOpt:]
+        for i in Optionals:
+            if type(i) == str:
+                    Indicator = i
+            elif type(i) == list:
+                HiddenList = i
+            elif type(i) == int:
+                if i == 0:
+                    Accept = False
     nexti =     [")","}","]",">","+"]
     previ =     ["(","{","[","<","-"]
     Outicator = "   "
