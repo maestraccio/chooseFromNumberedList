@@ -2,7 +2,7 @@
 list by entering the number or moving the selector up and down with the plus
 and minus signs, or with brackets pointing left (backward) or right (forward),
 also multiple of those in one input.
-The function requires one list of (min) four to (max) seven elements:
+The function requires one list of (min) four to (max) eight elements:
 the NumberedList:    the given [list, with, the, items] to choose from
 the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
 the Starting Number: common are 0 or 1, but any positive number can be given
@@ -22,7 +22,13 @@ Optional3 (integer): 0: move the indicator to the chosen position and wait for
                         immediately accepted).
                      1: immediately accept the input if the input is a valid
                         option (default if omitted)
-It returns the selected item in the list and its index number in that list.
+Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items. 
+                            Items can be added in one comma separated input, 
+                            or one-by-one, or both.
+                     False: Accept only one choice. This is the default.
+It returns the selected item in the list and its index number in that list,
+unless MultipleChoice is True. In that case two lists, one with items and the
+other with indexes, are returned.
 
 **chooseFromKeysList** allows you to print and select from items in a given list
 by entering the key or moving the selector up and down with the plus and minus
