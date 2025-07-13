@@ -692,43 +692,43 @@ def chooseFromDictionary(Import):
     # 0 = item in Dictionary, 1 = Key of that item in Dictionary
     return Dictionary[Key],Key
 
-TestList = [
-        "Als",
-        "Bij",
-        "Catania",
-        "De",
-        "Etna",
-        "Fakkelt"
-        ]
-TestKeysList = [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
-        ] 
-TestDictionary = {
-        "A": "Als",
-        "B": None,
-        "C": "Catania",
-        "D": "",
-        "E": "Etna",
-        "F": "Fakkelt"
-        }
-TestHiddenList = [
-        ":Q",
-        ":U",
-        ":W",
-        ":q",
-        ":u",
-        ":w"
-        ]
+#TestList = [
+#        "Als",
+#        "Bij",
+#        "Catania",
+#        "De",
+#        "Etna",
+#        "Fakkelt"
+#        ]
+#TestKeysList = [
+#        "A",
+#        "B",
+#        "C",
+#        "D",
+#        "E",
+#        "F"
+#        ] 
+#TestDictionary = {
+#        "A": "Als",
+#        "B": None,
+#        "C": "Catania",
+#        "D": "",
+#        "E": "Etna",
+#        "F": "Fakkelt"
+#        }
+#TestHiddenList = [
+#        ":Q",
+#        ":U",
+#        ":W",
+#        ":q",
+#        ":u",
+#        ":w"
+#        ]
 #what, where = chooseFromNumberedList([TestList,"A",1,1,"O",TestHiddenList,0,True])
 #print(what, where)
 #what, where = chooseFromKeysList([TestList, TestKeysList, "U", "C", ">+-", TestHiddenList, 0,True])
 #print(what, where)
 #what, where = chooseFromList([TestList, 0, "\033[32m"+"---"+"\033[0m", TestHiddenList, 1, True])
 #print(what, where)
-what, where = chooseFromDictionary([TestDictionary, 1, "B", "O",TestHiddenList,0,True])
-print(what, where)
+#what, where = chooseFromDictionary([TestDictionary, 1, "B", "O",TestHiddenList,0,True])
+#print(what, where)
