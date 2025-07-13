@@ -298,7 +298,7 @@ def chooseFromKeysList(Import):
                             MCList.append(Option)
                             IndexList.append(KeysList.index(Option))
                             MultChoiceList.append(NotNumberedList[KeysList.index(Option)])
-                        return MultChoiceList,IndexList
+                        return MultChoiceList,MCList
                 else:
                     for k in ip:
                         if k in nexti:
@@ -325,7 +325,6 @@ def chooseFromKeysList(Import):
                         else:
                             Index = KeysList.index(Option)
                             Option = KeysList[Index]
-                    print(Option)
                     if Option not in MCList:
                         if Option in KeysList:
                             MCList.append(KeysList[Index])
@@ -337,7 +336,7 @@ def chooseFromKeysList(Import):
                 print("%s : %s" % (("{:>%d}" % (maxlen+len(Outicator))).format(i),MultChoiceList[MCList.index(i)]))
             print("-"*(maxlen+len(Outicator)+1)+"+")
             if Accept == 1:
-                return MultChoiceList,IndexList
+                return MultChoiceList,MCList
         else:
             if ip in HiddenList:
                 return ip,ip
