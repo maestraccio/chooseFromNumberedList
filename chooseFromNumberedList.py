@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Version 2.32
+# Version 2.33
 # Date 20250718
 
 # **chooseFromNumberedList** allows you to print and select from items in a given
@@ -67,6 +67,7 @@ def chooseFromNumberedList(Import):
     Outicator = "   "
     connect   = " : "
     Int = DefaultOption
+    Index = Int - StartWithZeroOrOne
     IntList = []
     if AscendingOrDescendingOrRandom.upper() == "D":
         for item in NumberedList:
@@ -102,57 +103,70 @@ def chooseFromNumberedList(Import):
                 print(Outicator+("{:>%d}" % maxlen).format(i)+connect+str(NumberedList[IntList.index(i)]))
         return Int
     printNumberedList(Int,Indicator)
-    MCList = []
     IndexList = []
     MultChoiceList = []
     WaitForEnter = False
     yes = True
     while yes == True:
-        ip = input()
-        iplist = ip.split(",")
-        for i in iplist:
-            try:
-                Int = int(i.strip())
-                Index = Int-StartWithZeroOrOne
-                if Int in range(StartWithZeroOrOne,StartWithZeroOrOne+len(NumberedList)):
-                    if Int not in MCList:
-                        MCList.append(Int)
-                        IndexList.append(Index)
-                        MultChoiceList.append(NumberedList[Index])
-            except:
-                pass
+        ip = input().strip()
         if MultChoice == True:
-            if ip in HiddenList:
-                return ip,ip
-            elif ip == "":
-                if WaitForEnter == True:
-                    WaitForEnter = False
-                if Int in range(StartWithZeroOrOne,StartWithZeroOrOne+len(NumberedList)):
-                    if Int not in MCList:
-                        MCList.append(Int)
-                        IndexList.append(Int - StartWithZeroOrOne)
-                        MultChoiceList.append(NumberedList[Int - StartWithZeroOrOne])
+            iplist = ip.split(",")
+            if ip == "":
+                if Index not in IndexList:
+                    IndexList.append(Index)
+                    MultChoiceList.append(NumberedList[Index])
+                if Accept == 0:
+                    if WaitForEnter == True:
+                        WaitForEnter = False
+                    else:
+                        return MultChoiceList,IndexList
+                else:
                     return MultChoiceList,IndexList
+            elif ip in HiddenList:
+                return ip,ip
             else:
-                for k in ip:
-                    if k in nexti:
-                        Index = (Int - StartWithZeroOrOne + 1) % len(NumberedList)
-                        Int = Index + StartWithZeroOrOne
-                    elif k in previ:
-                        Index = (Int - StartWithZeroOrOne - 1) % len(NumberedList)
-                        Int = Index + StartWithZeroOrOne
-                if Int not in MCList:
-                    if Int in range(StartWithZeroOrOne,StartWithZeroOrOne+len(NumberedList)):
-                        MCList.append(Int)
-                        IndexList.append(Index)
-                        MultChoiceList.append(NumberedList[Index])
-                        WaitForEnter = True
-            print("-"*(maxlen+len(Outicator)+1)+"+"+"-"*(len(Outicator)))
-            for i in MCList:
-                print("%s : %s" % (("{:>%d}" % (maxlen+len(Outicator))).format(i),NumberedList[i-StartWithZeroOrOne]))
-            print("-"*(maxlen+len(Outicator)+1)+"+"+"-"*(len(Outicator)))
-            if Accept == 1:
-                return MultChoiceList,IndexList
+                try:
+                    ipi = int(ip)
+                    if ipi in range(StartWithZeroOrOne,len(NumberedList)+StartWithZeroOrOne):
+                        Index = ipi-StartWithZeroOrOne
+                        if Index not in IndexList:
+                            IndexList.append(Index)
+                            MultChoiceList.append(NumberedList[Index])
+                        if Accept == 0:
+                            pass
+                        else:
+                            return MultChoiceList,IndexList
+
+                except:
+                    for i in iplist:
+                        ipt = i.strip()
+                        try:
+                            ipi = int(i)
+                            if ipi in range(StartWithZeroOrOne,len(NumberedList)+StartWithZeroOrOne):
+                                Int = ipi
+                                Index = ipi-StartWithZeroOrOne
+                                if Index not in IndexList:
+                                    IndexList.append(Index)
+                                    MultChoiceList.append(NumberedList[Index])
+                        except:
+                            for k in i:
+                                if k in nexti:
+                                    try:
+                                        Index += 1
+                                        NumberedList[Index]
+                                    except:
+                                        Index = 0
+                                elif k in previ:
+                                    Index -= 1
+                                    if Index == -1:
+                                        Index = len(NumberedList)-1
+                                Int = Index+StartWithZeroOrOne
+                            WaitForEnter = True
+            if len(IndexList) != 0:
+                print("-"*(maxlen+len(Outicator)+1)+"+"+"-"*(len(Outicator)))
+                for i in IndexList:
+                    print("%s : %s" % (("{:>%d}" % (maxlen+len(Outicator))).format(i+StartWithZeroOrOne),NumberedList[i]))
+                print("-"*(maxlen+len(Outicator)+1)+"+"+"-"*(len(Outicator)))
         else:
             try:
                 Index = (int(ip) - StartWithZeroOrOne) % len(NumberedList)
@@ -173,9 +187,9 @@ def chooseFromNumberedList(Import):
                         Int = Index + StartWithZeroOrOne
                     else:
                         pass
+            return NumberedList[IntList.index(Int)],Int-StartWithZeroOrOne
         printNumberedList(Int,Indicator)
     # 0 = item in list, 1 = index of that item in list
-    return NumberedList[IntList.index(Int)],Int-StartWithZeroOrOne
 
 # **chooseFromKeysList** allows you to print and select from items in a given
 # list by entering the number or moving the selector up and down with the plus
@@ -270,16 +284,14 @@ def chooseFromKeysList(Import):
     yes = True
     while yes == True:
         if UpperOrLower.upper() == "U":
-            ip = input().upper()
+            ip = input().upper().strip()
         elif UpperOrLower.lower() == "l":
-            ip = input().lower()
+            ip = input().lower().strip()
         else:
-            ip = input()
-        ips = ip.strip()
+            ip = input().strip()
         if MultChoice == True:
-            print("OK")
-            iplist = ips.split(",")
-            if ips == "":
+            iplist = ip.split(",")
+            if ip == "":
                 if Option not in MCList:
                     MCList.append(Option)
                     MultChoiceList.append(NotNumberedList[Index])
@@ -290,10 +302,10 @@ def chooseFromKeysList(Import):
                         return MultChoiceList,MCList
                 else:
                     return MultChoiceList,MCList
-            elif ips in HiddenList:
-                return ips,ips
-            elif ips in KeysList:
-                Option = ips
+            elif ip in HiddenList:
+                return ip,ip
+            elif ip in KeysList:
+                Option = ip
                 Index = KeysList.index(Option)
                 if Option not in MCList:
                     MCList.append(Option)
@@ -684,42 +696,42 @@ def chooseFromDictionary(Import):
     # 0 = item in Dictionary, 1 = Key of that item in Dictionary
     return Dictionary[Key],Key
 
-TestList = [
-        "Als",
-        "Bij",
-        "Catania",
-        "De",
-        "Etna",
-        "Fakkelt"
-        ]
-TestKeysList = [
-        "A",
-        "BB",
-        "CCC",
-        "D",
-        "E",
-        "F"
-        ] 
-TestDictionary = {
-        "A": "Als",
-        "B": None,
-        "C": "Catania",
-        "D": "",
-        "E": "Etna",
-        "F": "Fakkelt"
-        }
-TestHiddenList = [
-        ":Q",
-        ":U",
-        ":W",
-        ":q",
-        ":u",
-        ":w"
-        ]
+#TestList = [
+#        "Als",
+#        "Bij",
+#        "Catania",
+#        "De",
+#        "Etna",
+#        "Fakkelt"
+#        ]
+#TestKeysList = [
+#        "A",
+#        "BB",
+#        "CCC",
+#        "D",
+#        "E",
+#        "F"
+#        ] 
+#TestDictionary = {
+#        "A": "Als",
+#        "B": None,
+#        "C": "Catania",
+#        "D": "",
+#        "E": "Etna",
+#        "F": "Fakkelt"
+#        }
+#TestHiddenList = [
+#        ":Q",
+#        ":U",
+#        ":W",
+#        ":q",
+#        ":u",
+#        ":w"
+#        ]
 #what, where = chooseFromNumberedList([TestList,"A",1,1,"O",TestHiddenList,0,True])
 #print(what, where)
-what, where = chooseFromKeysList([TestList, TestKeysList, "U", TestKeysList[2], ">+-", TestHiddenList, 0,True])
-print(what, where)
+#what, where = chooseFromKeysList([TestList, TestKeysList, "U", TestKeysList[2], ">+-", TestHiddenList, 0,True])
+#print(what, where)
 #what, where = chooseFromList([TestList, 0, "\033[32m"+"---"+"\033[0m", TestHiddenList, 1, True])
 #print(what, where)
 #what, where = chooseFromDictionary([TestDictionary, 1, "B", "O",TestHiddenList,0,True])
