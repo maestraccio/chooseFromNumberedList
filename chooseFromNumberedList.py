@@ -1,39 +1,39 @@
 #!/usr/bin/python
 
-# Version 2.34
-# Date 20250719
+# Version 2.35
+# Date 20250720
 
-# **chooseFromNumberedList** allows you to print and select from items in a given
-# list by entering the number or moving the selector up and down with the plus
-# and minus signs, or with a series of brackets pointing left (lower options) or 
-# right (higher options).
-# The function requires one list of (min) four to (max) eight elements:
-# the NumberedList:    the given [list, with, the, items] to choose from
-# the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
-# the Starting Number: common are 0 or 1, but any positive number can be given
-# the Default Option:  a number in the numbering list, between the lowest and
-#                      the highest number in the list (inclusive)
-# Optional1 (string):  a customized indicator: Can contain a colour code
-#                      (don't forget to close it with "\033[0m"!). Default
-#                      string length is 3, but you can also change the length
-#                      to make it stand out. If it is "O", the first three
-#                      characters of the chosen key are used.
-# Optional2 (list):    A list with valid options that are not shown in the
-#                      NumberedList - recommended for repeating exit options.
-#                      ATTENTION: It returns only the chosen option, twice!
-# Optional3 (integer): 0: move the indicator to the chosen position and wait for
-#                         the next input, accept only on "Enter" (except for
-#                         options in the optional "HiddenList", which are always
-#                         immediately accepted).
-#                      1: immediately accept the input if the input is a valid
-#                         option (default if omitted)
-# Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items. 
-#                             Items can be added in one comma separated input, 
-#                             or one-by-one, or both.
-#                      False: Accept only one choice. This is the default.
-# It returns the selected item in the list and its index number in that list,
-# unless MultipleChoice is True. In that case two lists, one with items and the
-# other with indexes, are returned.
+#**chooseFromNumberedList** allows you to print and select from items in a given
+#list by entering the number or moving the selector up and down with the plus
+#and minus signs, or with a series of brackets pointing left (lower options) or
+#right (higher options).
+#The function requires one list of (min) four to (max) eight elements:
+#the NumberedList:    the given [list, with, the, items] to choose from
+#the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
+#the Starting Number: common are 0 or 1, but any positive number can be given
+#the Default Option:  a number in the numbering list, between the lowest and
+#                     the highest number in the list (inclusive)
+#Optional1 (string):  a customized indicator: Can contain a colour code
+#                     (don't forget to close it with "\033[0m"!). Default
+#                     string length is 3, but you can also change the length
+#                     to make it stand out. If it is "O", the first three
+#                     characters of the chosen key are used.
+#Optional2 (list):    A list with valid options that are not shown in the
+#                     NumberedList - recommended for repeating exit options.
+#                     ATTENTION: It returns only the chosen option, twice!
+#Optional3 (integer): 0: move the indicator to the chosen position and wait for
+#                        the next input, accept only on "Enter" (except for
+#                        options in the optional "HiddenList", which are always
+#                        immediately accepted).
+#                     1: immediately accept the input if the input is a valid
+#                        option (default if omitted)
+#Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
+#                            Items can be added in one comma separated input,
+#                            or one-by-one, or both.
+#                     False: Accept only one choice. This is the default.
+#It returns the selected item in the list and its index number in that list,
+#unless MultipleChoice is True. In that case two lists, one with items and the
+#other with indexes, are returned.
 def chooseFromNumberedList(Import):
     NumberedList =                  Import[0] # provide as list
     AscendingOrDescendingOrRandom = Import[1] # provide as str
@@ -194,37 +194,37 @@ def chooseFromNumberedList(Import):
         printNumberedList(Int,Indicator)
     # 0 = item in list, 1 = index of that item in list
 
-# **chooseFromKeysList** allows you to print and select from items in a given
-# list by entering the number or moving the selector up and down with the plus
-# and minus signs, or with a series of brackets pointing left (lower options) or
-# right (higher options).
-# The function requires one list of (min) four to (max) eight elements:
-# the NotNumberedList: the given [list, with, the, items] to choose from
-# the Keys List:       the list with all possible keys to enter on input. Both
-#                      lists MUST be equal in length
-# the Case:            "U"pper, "l"ower or "C"ase sensitive
-#                      the Default Choice:  The the default option key in the KeysList
-# Optional1 (string):  a customized indicator: Can contain a colour code
-#                      (don't forget to close it with "\033[0m"!). Default
-#                      string length is 3, but you can also change the length
-#                      to make it stand out. If it is "O", the first three
-#                      characters of the chosen key are used.
-# Optional2 (list):    A list with valid options that are not shown in the
-#                      KeysList - recommended for repeating exit options.
-#                      ATTENTION: It returns only the chosen option, twice!
-# Optional3 (integer): 0: move the indicator to the chosen position and wait for
-#                         the next input, accept only on "Enter" (except for
-#                         options in the optional "HiddenList", which are always
-#                         immediately accepted).
-#                      1: immediately accept the input if the input is a valid
-#                         option (default if omitted) 
-# Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
-#                             Items can be added in one comma separated input, 
-#                             or one-by-one, or both.
-#                      False: Accept only one choice. This is the default.
-# It returns the selected item in the list and its corresponding key, unless
-# MultipleChoice is True. In that case two lists, one with items and the other
-# with keys, are returned.
+#**chooseFromKeysList** allows you to print and select from items in a given
+#list by entering the number or moving the selector up and down with the plus
+#and minus signs, or with a series of brackets pointing left (lower options) or
+#right (higher options).
+#The function requires one list of (min) four to (max) eight elements:
+#the NotNumberedList: the given [list, with, the, items] to choose from
+#the Keys List:       the list with all possible keys to enter on input. Both
+#                     lists MUST be equal in length
+#the Case:            "U"pper, "l"ower or "C"ase sensitive
+#the Default Choice:  The the default option key in the KeysList
+#Optional1 (string):  a customized indicator: Can contain a colour code
+#                     (don't forget to close it with "\033[0m"!). Default
+#                     string length is 3, but you can also change the length
+#                     to make it stand out. If it is "O", the first three
+#                     characters of the chosen key are used.
+#Optional2 (list):    A list with valid options that are not shown in the
+#                     KeysList - recommended for repeating exit options.
+#                     ATTENTION: It returns only the chosen option, twice!
+#Optional3 (integer): 0: move the indicator to the chosen position and wait for
+#                        the next input, accept only on "Enter" (except for
+#                        options in the optional "HiddenList", which are always
+#                        immediately accepted).
+#                     1: immediately accept the input if the input is a valid
+#                        option (default if omitted)
+#Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
+#                            Items can be added in one comma separated input,
+#                            or one-by-one, or both.
+#                     False: Accept only one choice. This is the default.
+#It returns the selected item in the list and its corresponding key, unless
+#MultipleChoice is True. In that case two lists, one with items and the other
+#with keys, are returned.
 def chooseFromKeysList(Import):
     NotNumberedList =               Import[0] # provide as list
     KeysList =                      Import[1] # provide as list
@@ -384,35 +384,35 @@ def chooseFromKeysList(Import):
         printNotNumberedList(Option,Indicator)
     # 0 = item in list, 1 = chosen option
 
-# **chooseFromList** allows you to print and select from items in a given list by
-# entering the number or moving the selector up and down with the plus and minus
-# signs, or with a series of brackets pointing left (lower options) or right
-# (higher options).
-# The function requires one list of (min) two to (max) six elements:
-# the List:            the given [list, with, the, items] to choose from
-# the Default Option:  an index number in the List
-# Optional1 (string):  a customized indicator: Can contain a colour code
-#                      (don't forget to close it with "\033[0m"!). Default
-#                      string length is 3, but you can also change the length
-#                      to make it stand out. If it is "O", the first three
-#                      characters of the chosen key are used.
-# Optional2 (list):    A list with valid options that are not shown in the
-#                      List - recommended for repeating exit options. ATTENTION:
-#                      It returns only the chosen option, twice!
-# Optional3 (integer): 0: move the indicator to the chosen position and wait for
-#                         the next input, accept only on "Enter" (except for
-#                         options in the optional "HiddenList", which are always
-#                         immediately accepted). Only relevant if MultipleChoice
-#                         is True
-#                      1: immediately accept the input if the input is a valid
-#                         option (default if omitted)
-# Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
-#                             Items can be added in one comma separated input,
-#                             or one-by-one, or both.
-#                      False: Accept only one choice. This is the default.
-# It returns the selected item in the list and its index number in that list,
-# unless MultipleChoice is True. In that case two lists, one with items and the
-# other with indexes, are returned.
+#**chooseFromList** allows you to print and select from items in a given list by
+#entering the number or moving the selector up and down with the plus and minus
+#signs, or with a series of brackets pointing left (lower options) or right
+#(higher options).
+#The function requires one list of (min) two to (max) six elements:
+#the List:            the given [list, with, the, items] to choose from
+#the Default Option:  an index number in the List
+#Optional1 (string):  a customized indicator: Can contain a colour code
+#                     (don't forget to close it with "\033[0m"!). Default
+#                     string length is 3, but you can also change the length
+#                     to make it stand out. If it is "O", the first three
+#                     characters of the chosen key are used.
+#Optional2 (list):    A list with valid options that are not shown in the
+#                     List - recommended for repeating exit options. ATTENTION:
+#                     It returns only the chosen option, twice!
+#Optional3 (integer): 0: move the indicator to the chosen position and wait for
+#                        the next input, accept only on "Enter" (except for
+#                        options in the optional "HiddenList", which are always
+#                      immediately accepted). Only relevant if MultipleChoice
+#                      is True
+#                   1: immediately accept the input if the input is a valid
+#                        option (default if omitted)
+#Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
+#                            Items can be added in one comma separated input,
+#                            or one-by-one, or both.
+#                     False: Accept only one choice. This is the default.
+#It returns the selected item in the list and its index number in that list,
+#unless MultipleChoice is True. In that case two lists, one with items and the
+#other with indexes, are returned.
 def chooseFromList(Import):
     List =              Import[0] # provide as list
     Int =               Import[1] # provide as int
@@ -509,43 +509,43 @@ def chooseFromList(Import):
             return List[Int],Int
         printList(Int,Indicator)
 
-# **chooseFromDictionary** allows you to print and select from items in a given 
-# dictionary by entering the number or moving the selector up and down with the 
-# plus and minus signs, or with a series of brackets pointing left (lower 
-# options) or right (higher options). 
-# The function requires one list of (min) three to (max) seven elements: 
-# the Dictionary:     the given dictionary with the keys and values to choose 
-#                     from. 
-# the Showing option: The line with the indicator is always printed, plus: 
-#                     0: don't show a line if its value is "" 
-#                     1: print all lines, buf if its value is "", print only the 
-#                        key 
-#                     2: print all lines, including the connector and the empty 
-#                        value 
-#                     3: print only the lines with an empty value 
-#                     the Default Option: an existing key in the dictionary 
-# Optional1 (string): a customized indicator: Can contain a colour code (don't
-#                     forget to close it with "\033[0m"!). Default string length
-#                     is 3, but you can also change the length to make it stand
-#                     out. If it is "O", the first three characters of the chosen
-#                     key are used.
-# Optional2 (list):   A list with valid options that are not shown in the
-#                     Dictionary - recommended for repeating exit options.
-#                     ATTENTION: It returns only the chosen option,
-#                     twice!
-# Optional3 (integer): 0: move the indicator to the chosen position and wait for
-#                         the next input, accept only on "Enter" (except for
-#                         options in the optional "HiddenList", which are always
-#                         immediately accepted).
-#                      1: immediately accept the input if the input is a valid
-#                         option (default if omitted)
-# Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
-#                             Items can be added in one comma separated input,
-#                             or one-by-one, or both.
-#                      False: Accept only one choice. This is the default.
-# It returns the selected item in the list and its corresponding key, unless
-# MultipleChoice is True. In that case two lists, one with items and the other
-# with keys, are returned.
+#**chooseFromDictionary** allows you to print and select from items in a given
+#dictionary by entering the number or moving the selector up and down with the
+#plus and minus signs, or with a series of brackets pointing left (lower
+#options) or right (higher options).
+#The function requires one list of (min) three to (max) seven elements:
+#the Dictionary:     the given dictionary with the keys and values to choose
+#                    from.
+#the Showing option: The line with the indicator is always printed, plus:
+#                    0: don't show a line if its value is ""
+#                    1: print all lines, buf if its value is "", print only the
+#                       key
+#                    2: print all lines, including the connector and the empty
+#                       value
+#                    3: print only the lines with an empty value
+#the Default Option: an existing key in the dictionary
+#Optional1 (string): a customized indicator: Can contain a colour code (don't
+#                    forget to close it with "\033[0m"!). Default string length
+#                    is 3, but you can also change the length to make it stand
+#                    out. If it is "O", the first three characters of the chosen
+#                    key are used.
+#Optional2 (list):   A list with valid options that are not shown in the
+#                    Dictionary - recommended for repeating exit options.
+#                    ATTENTION: It returns only the chosen option,
+#                    twice!
+#Optional3 (integer): 0: move the indicator to the chosen position and wait for
+#                        the next input, accept only on "Enter" (except for
+#                        options in the optional "HiddenList", which are always
+#                        immediately accepted).
+#                     1: immediately accept the input if the input is a valid
+#                        option (default if omitted)
+#Optional4 (boolean): True:  MultipleChoice: Create a list of chosen items.
+#                            Items can be added in one comma separated input,
+#                            or one-by-one, or both.
+#                     False: Accept only one choice. This is the default.
+#It returns the selected item in the list and its corresponding key, unless
+#MultipleChoice is True. In that case two lists, one with items and the other
+#with keys, are returned.
 def chooseFromDictionary(Import):
     Dictionary =        Import[0] # provide as dict
     ShowEmpty =         Import[1] # provide as int
@@ -622,6 +622,7 @@ def chooseFromDictionary(Import):
                 else:
                     pass
         return Key
+    print(Key)
     printDictionary(Key,Indicator)
     MCList = []
     MultChoiceList = []
@@ -636,6 +637,7 @@ def chooseFromDictionary(Import):
                 return NewKey,NewKey
             else:
                 if NewKey == "":
+                    Index = IList.index(Key)
                     if WaitForEnter == True:
                         if Key not in MCList:
                             MCList.append(IList[Index])
@@ -768,7 +770,7 @@ def chooseFromDictionary(Import):
 #    print(type(i), i)
 #what, where = chooseFromList(Import)
 #print(what, where)
-#Import = [TestDictionary, 1, "B", "O",TestHiddenList,0,False]
+#Import = [TestDictionary, 1, "B", "O",TestHiddenList,0,True]
 #for i in Import:
 #    print(type(i), i)
 #what, where = chooseFromDictionary(Import)
