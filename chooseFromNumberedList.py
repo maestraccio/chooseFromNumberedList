@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.35
-# Date 20250720
+# Version 2.36
+# Date 20250721
 
 #**chooseFromNumberedList** allows you to print and select from items in a given
 #list by entering the number or moving the selector up and down with the plus
@@ -112,6 +112,7 @@ def chooseFromNumberedList(Import):
         if MultChoice == True:
             iplist = ip.split(",")
             if ip == "":
+                Index = (Int - StartWithZeroOrOne) % len(NumberedList)
                 if Index not in IndexList:
                     IndexList.append(Index)
                     MultChoiceList.append(NumberedList[Index])
@@ -295,6 +296,7 @@ def chooseFromKeysList(Import):
         if MultChoice == True:
             iplist = ip.split(",")
             if ip == "":
+                Index = KeysList.index(Option)
                 if Option not in MCList:
                     MCList.append(Option)
                     MultChoiceList.append(NotNumberedList[Index])
