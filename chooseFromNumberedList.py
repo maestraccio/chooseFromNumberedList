@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Version 2.36
-# Date 20250721
+# Version 2.37
+# Date 20250723
 
 #**chooseFromNumberedList** allows you to print and select from items in a given
 #list by entering the number or moving the selector up and down with the plus
@@ -705,6 +705,7 @@ def chooseFromDictionary(Import):
                 for i in MCList:
                     print("%s : %s" % (("{:>%d}" % (maxlen+len(Outicator))).format(i),MultChoiceList[MCList.index(i)]))
                 print("-"*(maxlen+len(Outicator)+1)+"+"+"-"*(len(Outicator)))
+                Key = i
         else:
             if NewKey == "":
                 break
@@ -757,12 +758,12 @@ def chooseFromDictionary(Import):
 #        ":u",
 #        ":w"
 #        ]
-#Import = [TestList,"A",1,1,"O",TestHiddenList,0,True]
+#Import = [TestList,"A",1,1,"O",TestHiddenList,1,True]
 #for i in Import:
 #    print(type(i), i)
 #what, where = chooseFromNumberedList(Import)
 #print(what, where)
-#Import = [TestList, TestKeysList, "U", TestKeysList[2], ">+-", TestHiddenList, 1,False]
+#Import = [TestList, TestKeysList, "U", TestKeysList[2], ">+-", TestHiddenList, 1,True]
 #for i in Import:
 #    print(type(i), i)
 #what, where = chooseFromKeysList(Import)
