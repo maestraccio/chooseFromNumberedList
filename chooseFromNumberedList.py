@@ -1,13 +1,6 @@
-#!/usr/bin/python
-
-# Version 2.37
-# Date 20250723
-
-#**chooseFromNumberedList** allows you to print and select from items in a given
-#list by entering the number or moving the selector up and down with the plus
-#and minus signs, or with a series of brackets pointing left (lower options) or
-#right (higher options).
-#The function requires one list of (min) four to (max) eight elements:
+# Version 2.38
+# Date 20250816
+################################################################################
 #the NumberedList:    the given [list, with, the, items] to choose from
 #the Sorting Method:  "A" = Ascending, "D" = Descending, "R" = Random (LOL)
 #the Starting Number: common are 0 or 1, but any positive number can be given
@@ -624,7 +617,6 @@ def chooseFromDictionary(Import):
                 else:
                     pass
         return Key
-    print(Key)
     printDictionary(Key,Indicator)
     MCList = []
     MultChoiceList = []
@@ -653,23 +645,23 @@ def chooseFromDictionary(Import):
                             MultChoiceList.append(JList[Index])
                         return MultChoiceList,MCList
                 else:
+                    WaitForEnter = True
                     for k in NewKey:
                         if k in nexti:
                             try:
                                 Index = IList.index(Key)+1
                                 IList[Index]
                             except:
-                                Index = IList.index(DefaultOption)
+                                Index = IList.index(IList[0])
                             Key = IList[Index]
-                            WaitForEnter = True
                         elif k in previ:
                             Index = IList.index(Key)-1
                             Key = IList[Index]
-                            WaitForEnter = True
                     if Accept == 0:
                         pass
                     else:
                         if NewKey in IList:
+                            Key = NewKey
                             if NewKey not in MCList:
                                 Index = IList.index(NewKey)
                                 MCList.append(NewKey)
@@ -679,6 +671,7 @@ def chooseFromDictionary(Import):
                         if j in IList:
                             Index = IList.index(j)
                             NewKey = j
+                            Key = NewKey
                             if NewKey not in MCList:
                                 MCList.append(NewKey)
                                 IndexList.append(Index)
@@ -688,6 +681,7 @@ def chooseFromDictionary(Import):
                     else:
                         return MultChoiceList,MCList
                     if NewKey in IList:
+                        Key = NewKey
                         if NewKey not in MCList:
                             MCList.append(IList[Index])
                             IndexList.append(Index)
@@ -705,7 +699,6 @@ def chooseFromDictionary(Import):
                 for i in MCList:
                     print("%s : %s" % (("{:>%d}" % (maxlen+len(Outicator))).format(i),MultChoiceList[MCList.index(i)]))
                 print("-"*(maxlen+len(Outicator)+1)+"+"+"-"*(len(Outicator)))
-                Key = i
         else:
             if NewKey == "":
                 break
